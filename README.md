@@ -9,3 +9,6 @@ Short Description of the project goes here
 * Maze generation
 * Path finding
 * Inheritance of enemies
+---
+
+Long Description

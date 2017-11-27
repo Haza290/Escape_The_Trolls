@@ -4,18 +4,30 @@ Trapped in a randomly gereated maze, can you escape to the goal $? Developed in 
 
 ![Screen shot of the game](https://github.com/Haza290/Escape_The_Trolls/blob/master/Escape%20The%20Trolls%20Screenshot.PNG)
 
-## What I used
+## Key Featchers
 
-### Maze generation
+### Maze Generation
 Each game generates a new maze using a depth first search aproche to maze generation, this leads to a complet maze with no loops or sectioned off parts of the maze.
 
-### Path finding
+### Path Finding
 A* path finding was implmented in the Enemy abstract class so all enimes could make use of A* path finding.
 
 ### Inheritance of Enemy
-All eneimes inherited from the abstract class Enemy so they could make use of comonly used fuctionality like path finding and dieing.
+All eneimes inherited from the abstract class Enemy so they could make use of comonly used fuctionality like path finding and dieing. It also makes developing new enime types quicker and easyer as well as makes keeping track of enimes easyer.
 
-### Break between display and game logic
+### Multiple Enemy Types
+Thanks to the abstract class Enemy, haveing multiple eneimy types is realativly easy.
+
+### Trolls
+Trolls wander randomly untill they see the player, they then change colour to red and head on the shortest path to the player. If they lose sight of the player they head to there last know location of the player and turn yellow.
+
+### Spiders
+Spiders wander randomly making webs on un-webed tiles. If the player walked of a web that is conected to a spider then the spider head on the shortest path that is webed to the player and changes colour to red. If the player leaves the web then the spider goes back to wandering and changes colour back to cyan. Multiple spiders can join webs.
+
+### Ghosts
+Ghost always move randomly but they can move into and through walls.
+
+### Break Between Display and Game Logic
 The game can run completly independatly of the display meaning that it is realatily simple to create a completly different style of display.
 
 ---

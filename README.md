@@ -28,7 +28,7 @@ Spiders wander randomly making webs on un-webbed tiles. If the player walked of 
 Ghost always move randomly but they can move into and through walls.
 
 ### Break Between Display and Game Logic
-The game can run completely independently of the display meaning that it is relatively simple to create a completely different style of display.
+The game logic can run completely independently of the display meaning that it is relatively simple to create a completely different style of display. For example it would be relatively simple to create a 3D display for the game.
 
 ---
 

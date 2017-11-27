@@ -14,6 +14,7 @@ A* path finding was implmented in the Enemy abstract class so all enimes could m
 
 ### Inheritance of Enemy
 All eneimes inherited from the abstract class Enemy so they could make use of comonly used fuctionality like path finding and dieing
+
 ---
 
 Long Description

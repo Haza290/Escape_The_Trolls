@@ -2,7 +2,7 @@
 
 Trapped in a randomly gereated maze, can you escape to the goal $? Developed in Java, all code wrote by Harry Schneider apart from the AsciiPanel package.
 
-![Screen shot of the game](https://github.com/Haza290/Escape_The_Trolls/blob/master/Escape%20The%20Trolls%20Screenshot.PNG "test")
+![Screen shot of the game](https://github.com/Haza290/Escape_The_Trolls/blob/master/Escape%20The%20Trolls%20Screenshot.PNG)
 
 ## What I used
 

@@ -6,9 +6,17 @@ Short Description of the project goes here
 
 ## What I used
 
-* Maze generation
-* Path finding
-* Inheritance of enemies
+### Maze generation
+I used a bla bla bla...
+
+### Path finding
+A* path finding was implmented in the Enemy abstract class so all enimes could make use of A* path finding
+
+### Inheritance of Enemy
+All eneimes inherited from the abstract class Enemy so they could make use of comonly used fuctionality like path finding and dieing
 ---
 
 Long Description
+
+---
+Bugs:

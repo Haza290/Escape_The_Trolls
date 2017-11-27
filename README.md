@@ -1,6 +1,6 @@
 # Escape_The_Trolls
 
-Trapped in a randomly generated maze, can you escape to the goal $? Developed in Java, all code wrote by Harry Schneider apart from the AsciiPanel package.
+Trapped in a randomly generated maze, can you escape to the goal $? Developed in Java, all code wrote by Harry Schneider apart from the AsciiPanel package. Run ![EscapeTheTroll.jar](https://github.com/Haza290/Escape_The_Trolls/blob/master/EscapeTheTroll.jar) to play.
 
 ![Screen shot of the game](https://github.com/Haza290/Escape_The_Trolls/blob/master/Escape%20The%20Trolls%20Screenshot.PNG)
 

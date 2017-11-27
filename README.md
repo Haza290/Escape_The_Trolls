@@ -31,8 +31,5 @@ Ghost always move randomly but they can move into and through walls.
 The game logic can run completely independently of the display meaning that it is relatively simple to create a completely different style of display. For example it would be relatively simple to create a 3D display for the game.
 
 ---
-
-Long Description
-
----
-Bugs:
+## Bugs: 
+~~Getting to the goal doesn't end the game~~.

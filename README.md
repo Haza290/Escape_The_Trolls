@@ -33,5 +33,7 @@ The game logic can run completely independently of the display meaning that it i
 ---
 ## Bugs: 
 ~~Getting to the goal doesn't end the game~~
+
 ~~Spider webs cause massive lag after to many are created~~
+
 ~~Enemies don't die when walls are moved onto them~~

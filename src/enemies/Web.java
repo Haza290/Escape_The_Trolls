@@ -146,8 +146,7 @@ public class Web {
 	}
 
 	/**
-	 * Merges new web with any other webs touching it TODO Optermise this
-	 * 
+	 * Merges new web with any other webs touching it
 	 * @param coordinate
 	 */
 	private void mergeNewWebs(Coordinate coordinate) {

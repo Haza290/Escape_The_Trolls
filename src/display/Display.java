@@ -8,6 +8,10 @@ import maze.Maze;
 import maze.Tile;
 import asciiPanel.AsciiPanel;
 
+/**
+ * Display is in charge of all the visuals of the game
+ *
+ */
 public class Display extends JFrame {
 
 	private static final long serialVersionUID = 1060623638149583738L;
@@ -19,7 +23,7 @@ public class Display extends JFrame {
 		this.maze = maze;
 
 		// Create the main frame
-		mainFrame = new JFrame("Maze Game");
+		mainFrame = new JFrame("Escape The Trolls");
 		mainFrame.setLayout(new FlowLayout());
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// Creates the AsciiPanels
@@ -54,7 +58,10 @@ public class Display extends JFrame {
 		this.maze = maze;
 	}
 
-	// TODO make this
+	/**
+	 * Displays Game Over screen
+	 * @param win True if game is won
+	 */
 	public void gameOver(boolean win) {
 		
 		mapPanel.clear();

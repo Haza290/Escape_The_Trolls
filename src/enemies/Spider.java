@@ -7,7 +7,11 @@ import maze.Maze;
 import backend.GameLogic;
 import backend.Player;
 
-// TODO rewrite web code
+/**
+ * Spiders move randomly making webs on non web titles. If a player walks onto a web that is connected to the spider
+ * then the spider travels the shortest distance along its web to the player. If the player leaves the web then the 
+ * spider does back to randomly moving
+ */
 public class Spider extends Enemy {
 
 

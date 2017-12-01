@@ -41,10 +41,17 @@ public class Player extends Unit implements KeyListener {
 		maze.setTile(this.position, this);
 	}
 
+	/**
+	 * Returns the current position of the player
+	 * @return The current coordinate of the player
+	 */
 	public Coordinate getPosition() {
 		return position;
 	}
 
+	/**
+	 * Runs when key is pressed to check if the player is moving
+	 */
 	@Override
 	public void keyPressed(KeyEvent e) {
 				
@@ -62,50 +69,44 @@ public class Player extends Unit implements KeyListener {
 			c = '^';
 		}
 		// Down key pressed
-		if (e.getKeyCode() == DOWNKEY) {
+		else if (e.getKeyCode() == DOWNKEY) {
 			yMove = 1;
 			c = 'v';
 		}
 		// Left key pressed
-		if (e.getKeyCode() == LEFTKEY) {
+		else if (e.getKeyCode() == LEFTKEY) {
 			xMove = -1;
 			c = '<';
 		}
 		// Right key pressed
-		if (e.getKeyCode() == RIGHTKEY) {
+		else if (e.getKeyCode() == RIGHTKEY) {
 			xMove = 1;
 			c = '>';
 		}
+		else {
+			return;
+		}
 		move(xMove, yMove);
 
+		// Checks if player is out the goal
 		if (position.equals(goal)) {
-			gameLogic.isGameOver = true;
-			gameLogic.win = true;
+			gameLogic.setIsGameOver(true);
+			gameLogic.setWin(true);
 		}
 
 		gameLogic.nextTurn();
 	}
 
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// System.out.println("KeyReleased: " + e.getKeyChar());
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// System.out.println("KeyTyped: " + e.getKeyChar());
-	}
-
 	/**
 	 * Moves the player
 	 * 
-	 * @param xMove
-	 * @param yMove
+	 * @param xMove X position of target move
+	 * @param yMove Y position of target move
 	 */
 	private void move(int xMove, int yMove) {
 
 		Coordinate targetCoordinate = position.addCoordinates(new Coordinate(xMove, yMove));
-		Coordinate behinfTargetCoordinate = position.addCoordinates(new Coordinate(xMove * 2, yMove * 2));
+		Coordinate behindTargetCoordinate = position.addCoordinates(new Coordinate(xMove * 2, yMove * 2));
 
 		// If we can move to the tile move and update coordinate
 		if (maze.move(targetCoordinate, position)) {
@@ -114,19 +115,32 @@ public class Player extends Unit implements KeyListener {
 		// Else if the next tile is a wall and there is no wall behind it push
 		// the wall
 		else if (maze.getTile(targetCoordinate).getUnit() instanceof Wall
-				&& maze.isValidCoordiante(behinfTargetCoordinate)
-				&& !(maze.getTile(behinfTargetCoordinate).getUnit() instanceof Wall)) {
+				&& maze.isValidCoordiante(behindTargetCoordinate)
+				&& !(maze.getTile(behindTargetCoordinate).getUnit() instanceof Wall)) {
 			
 			// If unit behind the wall in an enemy kill it
-			if(maze.getTile(behinfTargetCoordinate).getUnit() instanceof Enemy) {
-				gameLogic.removeEnemy(behinfTargetCoordinate);
+			if(maze.getTile(behindTargetCoordinate).getUnit() instanceof Enemy) {
+				gameLogic.removeEnemy(behindTargetCoordinate);
 			}
-			maze.move(behinfTargetCoordinate, targetCoordinate);
+			maze.move(behindTargetCoordinate, targetCoordinate);
 			
 			// If we are moving a wall onto web destroy the web
-			if(maze.getTile(behinfTargetCoordinate).isWeb()) {
-				maze.getTile(behinfTargetCoordinate).getWeb().removeFromWeb(behinfTargetCoordinate);
+			if(maze.getTile(behindTargetCoordinate).isWeb()) {
+				maze.getTile(behindTargetCoordinate).getWeb().removeFromWeb(behindTargetCoordinate);
 			}
 		}
+	}
+
+	/**
+	 * Needs to be included to implement KeyListener
+	 */
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+	}
+	/**
+	 * Needs to be included to implement KeyListener
+	 */
+	@Override
+	public void keyTyped(KeyEvent arg0) {	
 	}
 }

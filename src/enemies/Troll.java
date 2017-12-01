@@ -7,6 +7,12 @@ import maze.Maze;
 import backend.GameLogic;
 import backend.Player;
 
+/**
+ * Troll moves randomly until it sees a player, then it changes colour and moves directly to the player.
+ * If the troll loses sight of the player it changes colour to green and moves towards the last know location
+ * of the player. If we are at the last know position of the player and we still can't see the player then change
+ * colour back to blue and and go back to moving randomly
+ */
 public class Troll extends Enemy {
 
 	private Coordinate playersLastCoordinate;
@@ -41,7 +47,7 @@ public class Troll extends Enemy {
 
 	/**
 	 * Checks if player is within sight, if it is, set the seenPlayer true and
-	 * sets the players last x and y position TODO rewrite this code.
+	 * sets the players last x and y position
 	 */
 	private void findPlayer() {
 

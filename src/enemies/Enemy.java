@@ -12,8 +12,7 @@ import backend.GameLogic;
 import backend.Player;
 
 /**
- * Has functions TODO rewrite this
- * @author Harry
+ * Has functions useful for all enemy types
  *
  */
 public abstract class Enemy extends Unit {
@@ -35,6 +34,9 @@ public abstract class Enemy extends Unit {
 		maze.setTile(position, this);
 	}
 
+	/**
+	 * Act is called after every time the player moves
+	 */
 	public abstract void act();
 	
 	public void moveTo(Coordinate targetCoordinate) {
@@ -43,9 +45,6 @@ public abstract class Enemy extends Unit {
 
 	/**
 	 * A* path finding for enemies
-	 * 
-	 * @param x
-	 * @param y
 	 */
 	public boolean moveTo(Coordinate targetCoordinate, boolean onlyTravelOnWeb) {
 

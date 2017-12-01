@@ -9,8 +9,6 @@ import maze.Wall;
 
 /**
  * Uses a depth first search approach to create a maze
- * 
- * @author Harry
  *
  */
 public class MazeBuilder {

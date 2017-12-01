@@ -22,7 +22,7 @@ public class GameLogic {
 	private Player player;
 	
 	public boolean isGameOver = false;
-	public boolean win = false;
+	private boolean win = false;
 
 	// Number of enemies to spawn
 	private int NUMOFTROLLS = 3;
@@ -45,6 +45,9 @@ public class GameLogic {
 		display.newFrame();
 	}
 
+	/**
+	 * Runs the next turn after the player has made a move
+	 */
 	public void nextTurn() {
 		// Makes all the enemies take there turn
 		for (Enemy enemy : enemies) {
@@ -58,6 +61,10 @@ public class GameLogic {
 		}
 	}
 	
+	/**
+	 * Spawns the end goal in a blank tile and returns the coordinates of the goal
+	 * @return Goal coordinates
+	 */
 	private Coordinate spawnGoal() {
 		Coordinate goalCoordinate = getRandomBlankTileCoordinate();
 		maze.setTile(goalCoordinate, new Goal());
@@ -109,6 +116,10 @@ public class GameLogic {
 	 * @return
 	 */
 	private boolean isGameOver() {
+		if(isGameOver == true) {
+			return true;
+		}
+		
 		for (Enemy enemy : enemies) {
 			if (enemy.getCoordinate().equals(player.getPosition())) {
 				return true;
@@ -143,5 +154,14 @@ public class GameLogic {
 		}
 		// If we get here then there is no enemy on given coordinate
 		return null;
+	}
+	
+	public void setWin(boolean win) {
+		this.win = win;
+	}
+
+	public void setIsGameOver(boolean isGameOver) {
+		this.isGameOver = isGameOver;
+		
 	}
 }

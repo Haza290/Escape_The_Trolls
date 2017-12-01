@@ -13,8 +13,6 @@ import backend.Player;
 
 /**
  * Ghost move about randomly and can move threw walls, but not other enemies.
- * 
- * @author Harry
  *
  */
 public class Ghost extends Enemy {
@@ -26,6 +24,9 @@ public class Ghost extends Enemy {
 		color = Color.GRAY;
 	}
 
+	/**
+	 * The ghost should move randomly, even through walls
+	 */
 	public void act() {
 
 		// If we are currently on a wall reset its colour back to white

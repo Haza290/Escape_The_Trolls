@@ -30,6 +30,8 @@ Ghost always move randomly but they can move into and through walls.
 ### Break Between Display and Game Logic
 The game logic can run completely independently of the display meaning that it is relatively simple to create a completely different style of display. For example it would be relatively simple to create a 3D display for the game.
 
+---
+
 ## What I Got Out Of The Project
 This projected allowed me to practise taking algorithms, like A* path finding and maze generating, and implementing them in java code. I also cemented my knowledge of abstract classes, inheritance and their usefulness.
 

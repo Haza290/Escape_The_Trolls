@@ -10,7 +10,7 @@ Trapped in a randomly generated maze, can you escape to the goal $? Developed in
 Each game generates a new maze using a depth first search approach to maze generation, this leads to a complete maze with no loops or sectioned off parts of the maze.
 
 ### Movable Walls
-Walls can be pushed unless there is anther wall directly behind them or they are on the edge of the map. This allows the player to move walls to open up new paths in the maze and can crush enemies if they are standing on the tile a wall is being moved onto.
+Walls can be pushed, unless their is a wall directly behind them, or they are on the edge of the map. This allows the player to move walls to open up new paths in the maze and can crush enemies if they are standing on the tile a wall is being moved onto.
 
 ### Path Finding
 A* path finding was implemented in the Enemy abstract class so all enemies could make use of A* path finding.

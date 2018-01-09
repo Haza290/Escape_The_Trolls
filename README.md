@@ -25,7 +25,7 @@ Trolls wander randomly until they see the player, they then change colour to red
 Spiders wander randomly making webs on un-webbed tiles. If the player walked of a web that is connected to a spider then the spider head on the shortest path that is webbed to the player and changes colour to red. If the player leaves the web then the spider goes back to wandering and changes colour back to cyan. Multiple spiders can join webs.
 
 ### Webs
-Webs grow and strink and new webs are added and removed. Checks that webs are still
+Webs grow and shrink and new webs are added and removed. Checks that webs are still
 
 ### Ghosts
 Ghosts always move randomly and can move into and through walls.

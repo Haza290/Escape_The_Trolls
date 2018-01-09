@@ -29,9 +29,11 @@ Webs grow and strink and new webs are added and removed. Checks that webs are st
 
 ### Ghosts
 Ghosts always move randomly and can move into and through walls.
+
 ---
 ## What I Got Out Of The Project
 This projected allowed me to practise taking algorithms, like A* path finding and maze generating, and implementing them in java code. I also cemented my knowledge of abstract classes, inheritance and their usefulness.
+
 ---
 ## Future Changes:
 * Add player lives/health

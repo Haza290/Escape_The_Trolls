@@ -79,10 +79,8 @@ public class Maze {
 	/**
 	 * Sets the tile at a given coordinate
 	 * 
-	 * @param coordinate
-	 *            the coordinate of the tile to be set
-	 * @param unit
-	 *            the unit to set the tile at a given unit
+	 * @param coordinate	the coordinate of the tile to be set
+	 * @param unit			the unit to set the tile at a given unit
 	 */
 	public void setTile(Coordinate coordinate, Unit unit) {
 		maze[coordinate.getXPos()][coordinate.getYPos()].setUnit(unit);
@@ -103,9 +101,8 @@ public class Maze {
 	/**
 	 * Checks is a given coordinate is within the maze
 	 * 
-	 * @param coordinate
-	 *            the coordinate being checked
-	 * @return boolean checking if the coordinate is within the maze
+	 * @param coordinate	the coordinate being checked
+	 * @return boolean 		checking if the coordinate is within the maze
 	 */
 	public boolean isValidCoordiante(Coordinate coordinate) {
 		return (getLength() > coordinate.getXPos()
@@ -116,9 +113,8 @@ public class Maze {
 	/**
 	 * Checks if a given tile is within the maze and if it is walkable
 	 * 
-	 * @param coordinate
-	 *            the coordinate of the tile being checked
-	 * @return if the coordinate tile is walkable
+	 * @param coordinate	the coordinate of the tile being checked
+	 * @return boolean 		if the coordinate tile is walkable
 	 */
 	public boolean isWalkable(Coordinate coordinate) {
 		if (!isValidCoordiante(coordinate)) {

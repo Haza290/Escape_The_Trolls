@@ -1,5 +1,10 @@
 package mazeBuilding;
 
+/**
+ * Maze Builder Tile is a data structure used in the creation of
+ * mazes
+ *
+ */
 public class MBTile {
 	
 	boolean isUpWall = true;

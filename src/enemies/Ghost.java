@@ -20,7 +20,7 @@ public class Ghost extends Enemy {
 	public Ghost(Coordinate coordinate, Maze maze, GameLogic gameLogic,
 			Player player) {
 		super(coordinate, maze, gameLogic, player);
-		c = 'G';
+		charIcon = 'G';
 		color = Color.GRAY;
 	}
 

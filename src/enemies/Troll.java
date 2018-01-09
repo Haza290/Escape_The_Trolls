@@ -21,18 +21,25 @@ public class Troll extends Enemy {
 
 	public Troll(Coordinate position, Maze maze, GameLogic gameLogic, Player player) {
 		super(position, maze, gameLogic, player);
-		c = 'T';
+		charIcon = 'T';
 		color = Color.BLUE;
 		seenPlayer = false;
 	}
 
+	/**
+	 * Call to make the troll "take a turn"
+	 */
 	public void act() {	
 		
 		findPlayer();
+		
+		// If we have seen the player but don't currently see the player turn green
 		if (!currentSeePlayer && seenPlayer) {
 			color = Color.GREEN;
 		}		
 		
+		// If we have seen the player then go to the players last know coordinate
+		// Note if we currently see the player then playersLastCoordinate = the players current coordinates
 		if (seenPlayer) {
 			moveTo(playersLastCoordinate);
 			// If we are at the last known position of the player then we don't know where they are now.
@@ -40,6 +47,7 @@ public class Troll extends Enemy {
 				seenPlayer = false;
 				color = Color.blue;
 			}
+			// If we haven't seen the player move randomly
 		} else {
 			moveRandom();
 		}
@@ -51,12 +59,16 @@ public class Troll extends Enemy {
 	 */
 	private void findPlayer() {
 
+		// Checks if all tiles between us and the player are walkable to see if we can see the player as
+		// only walkable tiles can be seen through. 
 		for (Coordinate coordinate : maze.getCoordinatesBetween2Points(position, player.getPosition())) {
+			// If a tile isn't walkable then return
 			if(!maze.getTile(coordinate).isWalkable()) {
 				currentSeePlayer = false;
 				return;
 			}
 		}
+		// If player can be seen then:
 		currentSeePlayer = true;
 		seenPlayer = true;
 		color = Color.RED;		

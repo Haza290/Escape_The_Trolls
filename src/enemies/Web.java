@@ -5,11 +5,19 @@ import java.util.ArrayList;
 import maze.Coordinate;
 import maze.Maze;
 
+/**
+ * 
+ */
 public class Web {
 
 	private ArrayList<Coordinate> web;
 	private Maze maze;
 
+	/**
+	 * Web constructor when constructed with a coordinate
+	 * @param coordinate	The coordinate of the web
+	 * @param maze			The maze we are in
+	 */
 	public Web(Coordinate coordinate, Maze maze) {
 		this.maze = maze;
 		web = new ArrayList<Coordinate>();
@@ -18,29 +26,32 @@ public class Web {
 		mergeNewWebs(coordinate);
 	}
 
+	/**
+	 * Web constructor when constructed with an array of coordinates
+	 * @param web	The coordinates of the web
+	 * @param maze	The maze we are in
+	 */
 	public Web(ArrayList<Coordinate> web, Maze maze) {
 		this.web = web;
 		this.maze = maze;
-		for (Coordinate coordinate : web) {
-			maze.getTile(coordinate).setWeb(this);
-		}
+		
 		updateTiles();
 	}
 
+	/**
+	 * Updates all the tiles in the web so that they are set to be part
+	 * of this web
+	 */
 	private void updateTiles() {
 		for (Coordinate coordinate : web) {
 			maze.getTile(coordinate).setWeb(this);
 		}
 	}
 
-	public void addToWeb(Coordinate coordinate) {
-		web.add(coordinate);
-	}
-
 	/**
-	 * Returns web
+	 * Returns the web
 	 * 
-	 * @return web
+	 * @return web	This web
 	 */
 	public ArrayList<Coordinate> getWeb() {
 		return web;
@@ -49,7 +60,7 @@ public class Web {
 	/**
 	 * Combine this web with anther
 	 * 
-	 * @param web
+	 * @param web	The web to combine to this web
 	 */
 	public void combineWebs(Web web) {
 		// Updates titles coming from new web
@@ -75,6 +86,9 @@ public class Web {
 		checkContiguity();
 	}
 
+	/**
+	 * Checks that the web is still Contiguous, if not then splits it into 2 or more webs
+	 */
 	private void checkContiguity() {
 		ArrayList<Coordinate> openList = new ArrayList<Coordinate>();
 		ArrayList<Coordinate> closedList = new ArrayList<Coordinate>();
@@ -87,6 +101,7 @@ public class Web {
 
 		ArrayList<ArrayList<Coordinate>> arrayOfWebArrays = new ArrayList<ArrayList<Coordinate>>();
 
+		// While there are still coordinate in the web
 		while (web.size() != 0) {
 
 			// Add's the first coordinate from web to the openList
@@ -121,12 +136,13 @@ public class Web {
 						openList.add(coordinate);
 					}
 				}
+				// Loops to the next coordinate on the openList.
 			}
 
-			// closedList contains a contiguous complete web so we add it to a
+			// closedList contains a contiguous complete web, so we add it to a
 			// tempWebArray and add that to an array of all contiguous webs
-			// created remove all the coordinates in the closedList from web and
-			// then clear the closedList
+			// created, remove all the coordinates in the closedList from web and
+			// then clear the closedList to loop again
 			ArrayList<Coordinate> tempWebArray = new ArrayList<Coordinate>();
 			tempWebArray.addAll(closedList);
 			arrayOfWebArrays.add(tempWebArray);

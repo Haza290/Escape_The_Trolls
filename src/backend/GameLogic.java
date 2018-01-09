@@ -21,8 +21,8 @@ public class GameLogic {
 	private Display display;
 	private Player player;
 	
-	public boolean isGameOver = false;
-	private boolean win = false;
+	private boolean isGameOver = false;		// Has the current game ended
+	private boolean win = false;			// Has the game been won
 
 	// Number of enemies to spawn
 	private int NUMOFTROLLS = 3;
@@ -37,7 +37,7 @@ public class GameLogic {
 	 * Sets up the game by creating the maze, display, player and all the enemies.
 	 */
 	public GameLogic() {
-		maze = new Maze(new MazeBuilder(19, 5).getConvertMaze());
+		maze = new Maze(new MazeBuilder(19, 5).convertMaze());	// Create a new maze using the Maze Builder
 		display = new Display(maze);
 		player = new Player(getRandomBlankTileCoordinate(), maze, display, this, spawnGoal());
 		spawnEnemies();
@@ -54,9 +54,9 @@ public class GameLogic {
 			enemy.act();
 		}
 		display.newFrame();
+		
 		// Checks for game over
-		isGameOver = isGameOver();
-		if (isGameOver) {
+		if (isGameOver()) {
 			display.gameOver(win);
 		}
 	}
@@ -163,5 +163,9 @@ public class GameLogic {
 	public void setIsGameOver(boolean isGameOver) {
 		this.isGameOver = isGameOver;
 		
+	}
+	
+	public boolean getIsGameOver() {
+		return isGameOver;
 	}
 }

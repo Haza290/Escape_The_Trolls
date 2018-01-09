@@ -11,8 +11,13 @@ import maze.Wall;
 import display.Display;
 import enemies.Enemy;
 
+/**
+ * This code is all to do with the players position and movement
+ *
+ */
 public class Player extends Unit implements KeyListener {
 
+	// Key values for different keyboard key presses
 	private int UPKEY = 38;
 	private int DOWNKEY = 40;
 	private int LEFTKEY = 37;
@@ -23,11 +28,10 @@ public class Player extends Unit implements KeyListener {
 	private GameLogic gameLogic;
 	private Coordinate goal;
 
-	public Player(Coordinate position, Maze maze, Display display,
-			GameLogic gameLogic, Coordinate goal) {
+	public Player(Coordinate position, Maze maze, Display display, GameLogic gameLogic, Coordinate goal) {
 		super();
 
-		c = 'v';
+		charIcon = 'v';
 		color = Color.MAGENTA;
 		walkable = true;
 
@@ -56,7 +60,7 @@ public class Player extends Unit implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 				
 		// if game is over just return
-		if (gameLogic.isGameOver) {
+		if (gameLogic.getIsGameOver()) {
 			return;
 		}
 
@@ -66,26 +70,29 @@ public class Player extends Unit implements KeyListener {
 		// Up key pressed
 		if (e.getKeyCode() == UPKEY) {
 			yMove = -1;
-			c = '^';
+			charIcon = '^';
 		}
 		// Down key pressed
 		else if (e.getKeyCode() == DOWNKEY) {
 			yMove = 1;
-			c = 'v';
+			charIcon = 'v';
 		}
 		// Left key pressed
 		else if (e.getKeyCode() == LEFTKEY) {
 			xMove = -1;
-			c = '<';
+			charIcon = '<';
 		}
 		// Right key pressed
 		else if (e.getKeyCode() == RIGHTKEY) {
 			xMove = 1;
-			c = '>';
+			charIcon = '>';
 		}
+		// If key pressed wasn't one we are looking for just return
 		else {
 			return;
 		}
+		
+		// Move the direction of the key press
 		move(xMove, yMove);
 
 		// Checks if player is out the goal
@@ -105,6 +112,7 @@ public class Player extends Unit implements KeyListener {
 	 */
 	private void move(int xMove, int yMove) {
 
+		// Get the coordinate we are trying to move to and the corrodinate of the tile behind that
 		Coordinate targetCoordinate = position.addCoordinates(new Coordinate(xMove, yMove));
 		Coordinate behindTargetCoordinate = position.addCoordinates(new Coordinate(xMove * 2, yMove * 2));
 
@@ -112,8 +120,7 @@ public class Player extends Unit implements KeyListener {
 		if (maze.move(targetCoordinate, position)) {
 			position = targetCoordinate;
 		}
-		// Else if the next tile is a wall and there is no wall behind it push
-		// the wall
+		// Else if the next tile is a wall and there is no wall behind it push the wall
 		else if (maze.getTile(targetCoordinate).getUnit() instanceof Wall
 				&& maze.isValidCoordiante(behindTargetCoordinate)
 				&& !(maze.getTile(behindTargetCoordinate).getUnit() instanceof Wall)) {

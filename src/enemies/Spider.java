@@ -17,7 +17,7 @@ public class Spider extends Enemy {
 
 	public Spider(Coordinate position, Maze maze, GameLogic gameLogic, Player player) {
 		super(position, maze, gameLogic, player);
-		c = 'S';
+		charIcon = 'S';
 		color = Color.CYAN;
 	}
 

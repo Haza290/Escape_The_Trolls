@@ -40,6 +40,7 @@ public class Display extends JFrame {
 
 	/**
 	 * Updates the AsciiPanel and repaints the mainFrame
+	 * TODO Could change this to only update 
 	 */
 	public void newFrame() {
 		// Loops threw the maze ands writes the corresponding maze unit char's
@@ -47,7 +48,7 @@ public class Display extends JFrame {
 		for (int y = 0; y < maze.getHeight(); y++) {
 			for (int x = 0; x < maze.getLength(); x++) {
 				Tile tilebuff = maze.getTile(new Coordinate(x, y));
-				mapPanel.write(tilebuff.getUnit().getC(), x, y, tilebuff
+				mapPanel.write(tilebuff.getUnit().getCharIcon(), x, y, tilebuff
 						.getUnit().getColor(), tilebuff.getBackgroundColour());
 				mainFrame.repaint();
 			}

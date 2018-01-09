@@ -36,6 +36,8 @@ public class MazeBuilder {
 	private void buildMaze() {
 
 		Random random = new Random();
+		
+		// Add's first mbTile to the stack
 		mbTilesStack.add(maze[0][0]);
 
 		while (!mbTilesStack.isEmpty()) {
@@ -74,12 +76,10 @@ public class MazeBuilder {
 	}
 
 	/**
-	 * Gets all unvisited neighbours that are not already on the stack.
+	 * Gets all unvisited neighbours that are not already in the stack.
 	 * 
-	 * @param x
-	 *            xPos of the current tile.
-	 * @param y
-	 *            yPos of the current tile.
+	 * @param x		xPos of the current tile.
+	 * @param y		yPos of the current tile.
 	 * @return An array of all the valid unvisited neighbour that are not
 	 *         already on the stack.
 	 */
@@ -119,17 +119,22 @@ public class MazeBuilder {
 	/**
 	 * Just checks that a set of coordinates are valid for the maze.
 	 * 
-	 * @param x
-	 * @param y
-	 * @return If x and y make a valid coordinate for the maze.
+	 * @param x		X position
+	 * @param y		Y position
+	 * @return True if x and y make a valid coordinate for the maze.
 	 */
 	private boolean isValidTile(int x, int y) {
 		return (x >= 0 && x < maze.length && y >= 0 && y < maze[0].length);
 	}
 
-	public Tile[][] getConvertMaze() {
+	/**
+	 * converts the maze from using the maze building tiles to using actual tiles
+	 * 
+	 * @return A 2d array of tiles to be used as the map
+	 */
+	public Tile[][] convertMaze() {
 
-		// Creates the maze 4 times plus 1 bigger than current maze and fills it
+		// Creates the maze 4 times larger (plus 1) than current maze and fills it
 		// with blank tiles.
 		Tile[][] tempMaze = new Tile[(maze.length * 4) + 1][(maze[0].length * 4) + 1];
 		for (int i = 0; i < tempMaze.length; i++) {

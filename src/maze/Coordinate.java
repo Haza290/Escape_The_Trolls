@@ -1,5 +1,9 @@
 package maze;
 
+/**
+ * A pair of ints used to describe position
+ *
+ */
 public class Coordinate {
 	
 	private int xPos, yPos;

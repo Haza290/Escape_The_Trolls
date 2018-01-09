@@ -39,6 +39,9 @@ public abstract class Enemy extends Unit {
 	 */
 	public abstract void act();
 	
+	/**
+	 * Runs moveTo with the parameter onlyTravelOnWeb = false
+	 */
 	public void moveTo(Coordinate targetCoordinate) {
 		moveTo(targetCoordinate, false);
 	}
